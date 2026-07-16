@@ -1,0 +1,64 @@
+name: ⚛️ Deploy corella-restaurante to VPS (Nginx)
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Create env for build
+        run: printf "%s" "${{ secrets.REACT_ENV }}" > .env.production
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          source: "dist/*"
+          target: "/tmp/corella_build"
+
+      - name: Activate build on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          script: |
+            set -e
+            # Asegurar que el directorio de destino existe
+            mkdir -p /var/www/corella-restaurante
+            
+            # Limpiar la versión anterior en producción
+            rm -rf /var/www/corella-restaurante/*
+            
+            # Copiar los nuevos archivos de la build
+            cp -r /tmp/corella_build/dist/* /var/www/corella-restaurante/
+            
+            # Limpiar el directorio temporal de subida
+            rm -rf /tmp/corella_build
+            
+            # Asignar permisos correctos a Nginx
+            chown -R www-data:www-data /var/www/corella-restaurante
+            
+            # Verificar y recargar Nginx
+            nginx -t
+            systemctl reload nginx
