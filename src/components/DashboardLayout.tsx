@@ -14,11 +14,16 @@ export interface DashboardTab {
 interface DashboardLayoutProps {
   title: string
   tabs: DashboardTab[]
+  /** Control externo del tab activo (opcional). Sin esto, el componente maneja su propio estado. */
+  activeTab?: string
+  onTabChange?: (key: string) => void
 }
 
-export function DashboardLayout({ title, tabs }: DashboardLayoutProps) {
+export function DashboardLayout({ title, tabs, activeTab: activeTabProp, onTabChange }: DashboardLayoutProps) {
   const { usuario, logout } = useAuth()
-  const [activeTab, setActiveTab] = useState(tabs[0]?.key)
+  const [internalActiveTab, setInternalActiveTab] = useState(tabs[0]?.key)
+  const activeTab = activeTabProp ?? internalActiveTab
+  const setActiveTab = onTabChange ?? setInternalActiveTab
 
   const tabActiva = tabs.find((t) => t.key === activeTab)
 

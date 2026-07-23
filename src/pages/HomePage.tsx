@@ -83,10 +83,12 @@ function HomePage() {
                 }
               }}
             >
-              <div className="banner-card-body">
-                <h3>{b.titulo}</h3>
-                {b.subtitulo && <p>{b.subtitulo}</p>}
-                {b.texto_boton && <span className="banner-card-cta">{b.texto_boton} →</span>}
+              <div className="banner-card-inner">
+                <div className="banner-card-body">
+                  <h3>{b.titulo}</h3>
+                  {b.subtitulo && <p>{b.subtitulo}</p>}
+                </div>
+                {b.texto_boton && <span className="banner-card-cta">{b.texto_boton}</span>}
               </div>
             </a>
           ))}
