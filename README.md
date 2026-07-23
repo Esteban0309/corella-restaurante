@@ -15,7 +15,7 @@
 
 ## 🌐 Demo en vivo
 
-**https://52.2.220.129.sslip.io**
+**https://food-ec.uaeftt-ute.site**
 
 Front y backend desplegados juntos (mismo dominio, HTTPS real con Let's Encrypt) en una VM Ubuntu en AWS. Usuarios de prueba: `admin` / `dinosaurio12` (Admin), `mesero1` / `Mesero123!` (Empleado), `cliente1` / `Cliente123!` (Cliente).
 
