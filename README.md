@@ -13,6 +13,12 @@
 
 ---
 
+## 🌐 Demo en vivo
+
+**https://52.2.220.129.sslip.io**
+
+Front y backend desplegados juntos (mismo dominio, HTTPS real con Let's Encrypt) en una VM Ubuntu en AWS. Usuarios de prueba: `admin` / `dinosaurio12` (Admin), `mesero1` / `Mesero123!` (Empleado), `cliente1` / `Cliente123!` (Cliente).
+
 ## ✨ Qué es esto
 
 El frontend de **La Estación del Sabor**: un sitio público de restaurante (menú, banners promocionales, reservas) más un panel de administración completo con control de acceso por rol. Consume la [API REST en Django](../restaurant-corella) del mismo proyecto.
