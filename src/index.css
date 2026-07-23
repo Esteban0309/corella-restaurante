@@ -1,14 +1,16 @@
 :root {
-  --text: #6b6375;
-  --text-h: #1a1025;
-  --bg: #fff;
-  --border: #e8e4ec;
-  --code-bg: #f8f6fa;
-  --accent: #c2185b;
-  --accent-bg: rgba(194, 24, 91, 0.08);
-  --accent-border: rgba(194, 24, 91, 0.4);
+  --text: #786a5c;
+  --text-h: #241a12;
+  --bg: #fdf6ec;
+  --surface: #fffaf3;
+  --border: #ecdfce;
+  --code-bg: #f7ece0;
+  --accent: #e2462e;
+  --accent-2: #f6a623;
+  --accent-bg: rgba(226, 70, 46, 0.08);
+  --accent-border: rgba(226, 70, 46, 0.4);
   --shadow:
-    rgba(0, 0, 0, 0.08) 0 10px 15px -3px, rgba(0, 0, 0, 0.04) 0 4px 6px -2px;
+    rgba(36, 20, 10, 0.1) 0 10px 20px -6px, rgba(36, 20, 10, 0.06) 0 4px 8px -2px;
 
   --sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
   --heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -25,16 +27,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #a8a0b0;
-    --text-h: #f0ecf4;
-    --bg: #12101a;
-    --border: #2a2535;
-    --code-bg: #1c1828;
-    --accent: #f06292;
-    --accent-bg: rgba(240, 98, 146, 0.12);
-    --accent-border: rgba(240, 98, 146, 0.45);
+    --text: #cabfb2;
+    --text-h: #f8f1e7;
+    --bg: #1c1410;
+    --surface: #241a14;
+    --border: #3a2c22;
+    --code-bg: #241a14;
+    --accent: #ff6a4d;
+    --accent-2: #ffb347;
+    --accent-bg: rgba(255, 106, 77, 0.14);
+    --accent-border: rgba(255, 106, 77, 0.45);
     --shadow:
-      rgba(0, 0, 0, 0.35) 0 10px 15px -3px, rgba(0, 0, 0, 0.2) 0 4px 6px -2px;
+      rgba(0, 0, 0, 0.4) 0 10px 20px -6px, rgba(0, 0, 0, 0.25) 0 4px 8px -2px;
   }
 }
 
@@ -62,4 +66,46 @@ h1, h2, h3, h4 {
 
 a {
   color: inherit;
+}
+
+/* ===== BRAND LOGO (flame + wordmark) ===== */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.brand-logo-text {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: calc(var(--logo-size, 32px) * 0.5);
+  letter-spacing: 0.5px;
+  color: var(--text-h);
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.brand-logo-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  line-height: 1;
+}
+
+.brand-logo-cutlery {
+  flex-shrink: 0;
+  margin: 0 1px;
+}
+
+.brand-logo-text small {
+  font-weight: 500;
+  font-size: 0.4em;
+  letter-spacing: 1px;
+  color: var(--text);
+  text-transform: uppercase;
+  margin-top: 1px;
 }

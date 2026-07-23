@@ -1,0 +1,94 @@
+.pedidos-board {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pedido-card {
+  background: var(--surface, #fff);
+  border-radius: 14px;
+  border: 1px solid var(--border, #e5e0da);
+  padding: 16px 18px;
+}
+
+.pedido-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pedido-tipo-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-right: 6px;
+  opacity: 0.8;
+}
+
+.pedido-meta {
+  font-size: 13px;
+  color: var(--text, #666);
+}
+
+.pedido-detalle-list {
+  margin: 12px 0;
+  padding-left: 18px;
+}
+
+.pedido-total {
+  font-weight: 700;
+}
+
+.pedido-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--code-bg, #eee);
+}
+
+.badge-ok { background: #dff3e3; color: #1e7e34; }
+.badge-danger { background: #fbe3e3; color: #c0392b; }
+
+.badge-estado-pendiente { background: #fdf1d6; color: #916b09; }
+.badge-estado-preparando { background: #d9ecfb; color: #1462a0; }
+.badge-estado-listo { background: #e2dffb; color: #4b32a3; }
+.badge-estado-entregado,
+.badge-estado-completada,
+.badge-estado-confirmada { background: #dff3e3; color: #1e7e34; }
+.badge-estado-cancelado,
+.badge-estado-cancelada { background: #fbe3e3; color: #c0392b; }
+.badge-estado-libre { background: #dff3e3; color: #1e7e34; }
+.badge-estado-ocupada { background: #fbe3e3; color: #c0392b; }
+.badge-estado-reservada { background: #fdf1d6; color: #916b09; }
+.badge-estado-mantenimiento { background: #eee; color: #555; }
+
+.detalle-linea {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 8px;
+  align-items: end;
+  margin-bottom: 8px;
+}
+
+.panel-hint {
+  color: var(--text, #666);
+  font-size: 14px;
+  margin-top: -8px;
+  margin-bottom: 16px;
+}
+
+.panel-divider {
+  border: none;
+  border-top: 1px solid var(--border, #e5e0da);
+  margin: 32px 0;
+}
